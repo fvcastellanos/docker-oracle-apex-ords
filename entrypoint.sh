@@ -1,5 +1,9 @@
 #!/bin/bash
 
+chmod -Rf u+x /scripts
+cd scripts
+./install_main.sh
+
 exec >> >(tee -ai /docker_log.txt)
 exec 2>&1
 
