@@ -14,15 +14,11 @@ ENV ORACLE_SID=XE
 EXPOSE 22 1521 8080
 
 # all installation files
+COPY files /files
 COPY scripts /scripts
 
-# ! to speed up the build process - only to tests the build process !!!
-# COPY files /files
-# ! to speed up the build process - only to tests the build process !!!
-
-# start the installation
-RUN /scripts/install_main.sh
-
+# store the configuration outside from container
+VOLUME /u01
 
 # ENTRYPOINT
 ADD entrypoint.sh /
